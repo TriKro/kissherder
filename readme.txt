@@ -22,10 +22,71 @@ Once KissHerder is enabled, you should configure your KissMetrics API key.
 
 == Frequently Asked Questions ==
 
-= This is a question =
+= What event names should I use? =
 
-an answer
+KissMetrics allows you complete free choice in events. See the following page for a little more information:
+http://support.kissmetrics.com/apis/api-tips
 
+= How do I track Facebook events? =
+
+The Facebook social plugins emit a number of events. Most importantly the "edge.create" event which is triggerd when a user clicks a like button on your page.
+Assuming you have an XFBML like button somewhere on your page you can use the following snippet:
+
+    <script type="text/javascript">
+        FB.Event.subscribe('edge.create', function(response) {
+          _kmq.push(['record', 'Facebook like']);
+        });
+    </script>
+
+You should paste this code just below wherever you include the button.
+
+You can use an XFBML like button on this page:
+http://developers.facebook.com/docs/reference/plugins/like/
+
+Other events are documented here:
+http://developers.facebook.com/docs/reference/javascript/FB.Event.subscribe/
+
+= How do I track Twitter follows? =
+
+Tracking Twitter events is very similar to Facebook tracking. Include the following snippet just below any Twitter code:
+
+    <script type="text/javascript">
+        twttr.events.bind('follow', function(event) {
+          _kmq.push(['record', 'Twitter follow']);
+        });
+    </script>
+
+There are other events, such as "tweet" that you might want to track. A full list is at the Twitter dev docs:
+https://dev.twitter.com/docs/intents/events
+
+= How do I track Google +1 (plusone)? =
+
+It's easiest to add the tracking when you create your button:
+http://www.google.com/webmasters/+1/button/
+
+Click on "Advanced Options" and enter "plusone_vote" into the "JS Callback Function" field.
+
+Below the +1 code, include the following snippet:
+
+    <script type="text/javascript">
+      function plusone_vote( obj ) {
+        _kmq.push(['record', 'Plus 1 vote']);
+      }
+    </script>
+    
+= How do I track LinkedIn shares? =
+
+This currently requires an undocumented feature, so keep in mind that this might change in the future.
+Start by creating your button on the LinkedIn dev pages https://developer.linkedin.com/plugins/share-button
+Inside the "IN/Share" tag section you need to add the "data-onSuccess" callback function. Here's an example:
+
+    <script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+    <script type="IN/Share" data-url="http://www.streamhead.com/" data-counter="right" data-onSuccess="linkedin_share"></script>
+    <script type="text/javascript">
+    function linkedin_share() {
+      _kmq.push(['record', 'Shared on LinkedIn']);
+    }
+    </script>
 
 == Screenshots ==
 

@@ -17,6 +17,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 function display_kissmetrics() {
 	$options = get_option('kissherder_options');
 	$api_key = $options['api_key'];
+	if(!empty($api_key)) {
 ?>
 
 <script type="text/javascript">
@@ -31,6 +32,7 @@ function display_kissmetrics() {
 </script>
 
 <?php
+	}
 }
 
 ?>

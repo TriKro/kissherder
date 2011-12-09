@@ -31,8 +31,13 @@ if ( !defined('KISSHERDER_FEEDBACK_LINK') ) {
 }
 
 if ( !is_admin() ) {
-	require_once( plugin_dir_path(__FILE__).'/includes/user.php' );
-	add_action('wp_footer', 'display_kissmetrics');
+	$options = get_option('kissherder_options');
+	$api_key = $options['api_key'];
+	if(!empty($api_key)) {
+		require_once( plugin_dir_path(__FILE__).'/includes/user.php' );
+		add_action('wp_footer', 'kissherder_display');
+		add_action('wp_enqueue_scripts', 'kissherder_javascript');
+	}
 }
 
 /**

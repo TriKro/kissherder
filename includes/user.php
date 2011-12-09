@@ -14,10 +14,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-function display_kissmetrics() {
+function kissherder_display() {
 	$options = get_option('kissherder_options');
 	$api_key = $options['api_key'];
-	if(!empty($api_key)) {
+
 ?>
 
 <script type="text/javascript">
@@ -32,7 +32,10 @@ function display_kissmetrics() {
 </script>
 
 <?php
-	}
+}
+
+function kissherder_javascript() {
+	wp_enqueue_script('kissherder', plugins_url('/kissherder/kissherder.js'), array('jquery'), 1.0);
 }
 
 ?>

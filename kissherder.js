@@ -10,7 +10,7 @@
 		
 		//instrument comment form
 		$('#commentform').submit(function() {
-			_kmq.push(['record', 'Comment']);
+			_kmq.push(['trackSubmit', 'commentform', 'Comment form submitted']);
 		});
 	});
 	

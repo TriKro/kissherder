@@ -7,5 +7,11 @@
 		$('a[href*="feed="]').click( function() {
 			_kmq.push(['record', 'Subscribe RSS']);
 		});
+		
+		//instrument comment form
+		$('#commentform').submit(function() {
+			_kmq.push(['record', 'Comment']);
+		});
 	});
+	
 })(jQuery);

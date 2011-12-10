@@ -12,6 +12,11 @@
 		$('#commentform').submit(function() {
 			_kmq.push(['trackSubmit', 'commentform', 'Comment form submitted']);
 		});
+		
+		//track "read" items (after 2 minutes)
+		setTimeout(function() {
+			_kmq.push(['record', 'Read article']);
+		}, 120000);
 	});
 	
 })(jQuery);

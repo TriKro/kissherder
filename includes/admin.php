@@ -23,16 +23,60 @@ function kissherder_admin_init () {
 	
 	add_settings_section('kissherder_main', 'Settings', 'kissherder_main_text', 'kissherder');
 	add_settings_field('kissherder_api_key', 'KissMetrics API key', 'kissherder_api_key_input', 'kissherder', 'kissherder_main');
+	
+	add_settings_field('kissherder_subscribe_event'  , 'Event on subscribe to RSS'            , 'kissherder_subscribe_event_input'  , 'kissherder', 'kissherder_main');
+	add_settings_field('kissherder_subscribe_options', 'Extra (optional) options on subscribe', 'kissherder_subscribe_options_input', 'kissherder', 'kissherder_main');
+	add_settings_field('kissherder_comment_event'    , 'Event on comment'                     , 'kissherder_comment_event_input'    , 'kissherder', 'kissherder_main');
+	add_settings_field('kissherder_comment_options'  , 'Extra (options) options on comment'   , 'kissherder_comment_options_input'  , 'kissherder', 'kissherder_main');
+	add_settings_field('kissherder_read_event'       , 'Event on read (2 minutes on page)'    , 'kissherder_read_event_input'       , 'kissherder', 'kissherder_main');
+	add_settings_field('kissherder_read_options'     , 'Extra (optional) options on read'     , 'kissherder_read_options_input'     , 'kissherder', 'kissherder_main');
 }
 
 function kissherder_main_text() {
-	echo '<p>Configure the kissherder plugin here.</p>';
+	echo "<p>Configure the kissherder plugin here. You can customize the event that is recorded on various actions. You can also add
+			additional options that are sent with the event. These must be in the form of a JSON string, for instance {'activity':'facebook'}</p>";
 }
 
 function kissherder_api_key_input() {
 	$options = get_option('kissherder_options');
 	$value   = $options['api_key'];
-	echo "<input id='twitter_name' name='kissherder_options[api_key]' type='text' value='$value' />";
+	echo "<input id='api_key' name='kissherder_options[api_key]' type='text' value='$value' />";
+}
+
+function kissherder_subscribe_event_input() {
+	$options = get_option('kissherder_options');
+	$value   = $options['subscribe_event'];
+	echo "<input id='subscribe_event' name='kissherder_options[subscribe_event]' type='text' value='$value' />";
+}
+
+function kissherder_subscribe_options_input() {
+	$options = get_option('kissherder_options');
+	$value   = esc_html($options['subscribe_options']);
+	echo "<input id='subscribe_options' name='kissherder_options[subscribe_options]' type='text' value='$value' />";
+}
+
+function kissherder_comment_event_input() {
+	$options = get_option('kissherder_options');
+	$value   = $options['comment_event'];
+	echo "<input id='comment_event' name='kissherder_options[comment_event]' type='text' value='$value' />";
+}
+
+function kissherder_comment_options_input() {
+	$options = get_option('kissherder_options');
+	$value   = esc_html($options['comment_options']);
+	echo "<input id='comment_options' name='kissherder_options[comment_options]' type='text' value='$value' />";
+}
+
+function kissherder_read_event_input() {
+	$options = get_option('kissherder_options');
+	$value   = $options['read_event'];
+	echo "<input id='read_event' name='kissherder_options[read_event]' type='text' value='$value' />";
+}
+
+function kissherder_read_options_input() {
+	$options = get_option('kissherder_options');
+	$value   = esc_html($options['read_options']);
+	echo "<input id='read_options' name='kissherder_options[read_options]' type='text' value='$value' />";
 }
 
 function kissherder_options_page() {

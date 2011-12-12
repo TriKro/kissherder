@@ -45,7 +45,13 @@ if ( !is_admin() ) {
  */
 function kissherder_create_options() {
     $options = array(
-      'api_key' => ''
+      'api_key' => '',
+      'subscribe_event'   => 'Subscribe RSS',
+      'subscribe_options' => '',
+      'comment_event'   => 'Comment form submitted',
+      'comment_options' => '',
+      'read_event'   => 'Read article',
+      'read_options' => ''
     );
     $dbOptions = get_option("kissherder_options");
     if(!empty($dbOptions)) {

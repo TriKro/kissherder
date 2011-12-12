@@ -36,6 +36,14 @@ function kissherder_display() {
 
 function kissherder_javascript() {
 	wp_enqueue_script('kissherder', plugins_url('/kissherder/kissherder.js'), array('jquery'), 1.0);
+	
+	$options = get_option('kissherder_options');
+	wp_localize_script( 'kissherder', 'KissHerder', array( 'subscribeEvent'   => $options['subscribe_event'],
+														   'subscribeOptions' => $options['subscribe_options'] ? $options['subscribe_options'] : '{}',
+														   'commentEvent'     => $options['comment_event'],
+														   'commentOptions'   => $options['comment_options'] ? $options['comment_options'] : '{}',
+														   'readEvent'        => $options['read_event'],
+														   'readOptions'      => $options['read_options'] ? $options['read_options'] : '{}' ) );
 }
 
 ?>

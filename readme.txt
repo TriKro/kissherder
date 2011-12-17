@@ -4,7 +4,7 @@ Contributors: trikro, pbackx
 Donate link: http://grasshopperherder.com/
 Tags: plugin, kissmetrics, kiss, metrics
 Requires at least: 3.0
-Tested up to: 3.2.1
+Tested up to: 3.3
 Stable tag: 1.0
 
 

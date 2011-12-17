@@ -9,9 +9,7 @@
 		});
 		
 		//instrument comment form
-		$('#commentform').submit(function() {
-			_kmq.push(['trackSubmit', 'commentform', KissHerder.commentEvent, KissHerder.commentOptions]);
-		});
+		_kmq.push(['trackSubmit', 'commentform', KissHerder.commentEvent, KissHerder.commentOptions]);
 		
 		//track "read" items (after 2 minutes)
 		setTimeout(function() {

@@ -48,7 +48,7 @@ http://developers.facebook.com/docs/reference/javascript/FB.Event.subscribe/
 
 = How do I track Twitter follows? =
 
-Tracking Twitter events is very similar to Facebook tracking. Include the following snippet just below any Twitter code:
+Tracking Twitter events is very similar to Facebook tracking. Include the following snippet just below any Twitter follow code:
 
     <script type="text/javascript">
         twttr.events.bind('follow', function(event) {
@@ -56,7 +56,15 @@ Tracking Twitter events is very similar to Facebook tracking. Include the follow
         });
     </script>
 
-There are other events, such as "tweet" that you might want to track. A full list is at the Twitter dev docs:
+If you want to track tweets, use this:
+
+    <script type="text/javascript">
+        twttr.events.bind('tweet', function(event) {
+          _kmq.push(['record', 'Tweeted']);
+        });
+    </script>
+
+A full list of events you can track is in the Twitter dev docs:
 https://dev.twitter.com/docs/intents/events
 
 = How do I track Google +1 (plusone)? =

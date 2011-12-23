@@ -15,6 +15,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 function kissherder_display() {
+  if(is_user_logged_in() && current_user_can('manage_options')) {
+    // don't tracke logged in admin
+    return;
+  }
+
 	$options = get_option('kissherder_options');
 	$api_key = $options['api_key'];
 
@@ -35,6 +40,11 @@ function kissherder_display() {
 }
 
 function kissherder_javascript() {
+  if(is_user_logged_in() && current_user_can('manage_options')) {
+    // don't tracke logged in admin
+    return;
+  }
+
 	wp_enqueue_script('kissherder', plugins_url('/kissherder/kissherder.js'), array('jquery'), 1.0);
 	
 	$options = get_option('kissherder_options');

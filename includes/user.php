@@ -56,4 +56,8 @@ function kissherder_javascript() {
 														   'readOptions'      => $options['read_options'] ? $options['read_options'] : '{}' ) );
 }
 
+function kissherder_powered_by() {
+	echo '<p style="text-align:center; background-color:rgba(0,0,0,0.05);">Metrics Powered by KissHerder by GrasshopperHerder.com</p>';
+}
+
 ?>

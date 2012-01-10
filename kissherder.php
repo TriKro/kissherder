@@ -37,6 +37,9 @@ if ( !is_admin() ) {
 		require_once( plugin_dir_path(__FILE__).'/includes/user.php' );
 		add_action('wp_footer', 'kissherder_display');
 		add_action('wp_enqueue_scripts', 'kissherder_javascript');
+		if($options['show_footer']) {
+			add_action('wp_footer', 'kissherder_powered_by');
+		}
 	}
 }
 
@@ -51,7 +54,8 @@ function kissherder_create_options() {
       'comment_event'   => 'Comment form submitted',
       'comment_options' => '',
       'read_event'   => 'Read article',
-      'read_options' => ''
+      'read_options' => '',
+      'show_footer' => 'on',
     );
     $dbOptions = get_option("kissherder_options");
     if(!empty($dbOptions)) {

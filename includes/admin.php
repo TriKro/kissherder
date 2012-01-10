@@ -30,11 +30,19 @@ function kissherder_admin_init () {
 	add_settings_field('kissherder_comment_options'  , 'Extra (options) options on comment'   , 'kissherder_comment_options_input'  , 'kissherder', 'kissherder_main');
 	add_settings_field('kissherder_read_event'       , 'Event on read (2 minutes on page)'    , 'kissherder_read_event_input'       , 'kissherder', 'kissherder_main');
 	add_settings_field('kissherder_read_options'     , 'Extra (optional) options on read'     , 'kissherder_read_options_input'     , 'kissherder', 'kissherder_main');
+	
+	add_settings_section('kissherder_linklove', 'Link Love', 'kissherder_footer_text', 'kissherder');
+	add_settings_field('kissherder_footer', 'Show "Powered by" footer', 'kissherder_footer_input', 'kissherder', 'kissherder_linklove');
+	
 }
 
 function kissherder_main_text() {
 	echo "<p>Configure the kissherder plugin here. You can customize the event that is recorded on various actions. You can also add
 			additional options that are sent with the event. These must be in the form of a JSON string, for instance {'activity':'facebook'}</p>";
+}
+
+function kissherder_footer_text() {
+	echo "<p>If you like this plugin, why not show it?</p>";
 }
 
 function kissherder_api_key_input() {
@@ -77,6 +85,13 @@ function kissherder_read_options_input() {
 	$options = get_option('kissherder_options');
 	$value   = esc_html($options['read_options']);
 	echo "<input id='read_options' name='kissherder_options[read_options]' type='text' value='$value' />";
+}
+
+function kissherder_footer_input() {
+	$options = get_option('kissherder_options');
+	echo "<input id='show_footer' name='kissherder_options[show_footer]' "; 
+	checked($options['show_footer'], 'on');
+	echo " type='checkbox'  />";
 }
 
 function kissherder_options_page() {

@@ -1,4 +1,4 @@
-=== TweetHerder ===
+=== KissHerder ===
 
 Contributors: trikro, pbackx
 Donate link: http://grasshopperherder.com/

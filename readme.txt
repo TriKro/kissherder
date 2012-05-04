@@ -29,7 +29,7 @@ http://support.kissmetrics.com/apis/api-tips
 
 = How do I track Facebook events? =
 
-The Facebook social plugins emit a number of events. Most importantly the "edge.create" event which is triggerd when a user clicks a like button on your page.
+The Facebook social plugins emit a number of events. Most importantly the "edge.create" event which is triggered when a user clicks a like button on your page.
 Assuming you have an XFBML like button somewhere on your page you can use the following snippet:
 
     <script type="text/javascript">

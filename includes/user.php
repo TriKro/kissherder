@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2011 Tristan Kromer, Peter Backx (email : tristan@grasshopperherder.com)
+Copyright 2012 Tristan Kromer, Peter Backx (email : tristan@grasshopperherder.com)
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or

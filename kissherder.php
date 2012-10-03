@@ -35,7 +35,7 @@ if ( !is_admin() ) {
 	$api_key = $options['api_key'];
 	if(!empty($api_key)) {
 		require_once( plugin_dir_path(__FILE__).'/includes/user.php' );
-		add_action('wp_footer', 'kissherder_display');
+		add_action('wp_head', 'kissherder_display');
 		add_action('wp_enqueue_scripts', 'kissherder_javascript');
 		if($options['show_footer']) {
 			add_action('wp_footer', 'kissherder_powered_by');

@@ -1,14 +1,14 @@
 <?php
 /**
  * @package KissHerder
- * @version 1.0
+ * @version 1.1
  */
 /*
 Plugin Name: KissHerder
 Plugin URI: http://grasshopperherder.com/
 Description: Easily add KissMetrics code and user tracking
 Author: Tristan Kromer, Peter Backx
-Version: 1.0
+Version: 1.1
 Author URI: http://grasshopperherder.com/
 License: GPLv2
 

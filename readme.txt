@@ -5,7 +5,7 @@ Donate link: http://grasshopperherder.com/
 Tags: plugin, kissmetrics, kiss, metrics
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.0
+Stable tag: 1.1
 
 
 == Description ==
@@ -102,6 +102,10 @@ none yet
 
 
 == Changelog ==
+
+= Version 1.1 =
+
+* Include KM JavaScript in the header instead of the footer.
 
 = Version 1.0 =
 
